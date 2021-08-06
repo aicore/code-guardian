@@ -24,4 +24,3 @@ def process_event(event):
 
     print("Executing worker handler:", worker_name, ":", event)
     return work_handler(event)
-

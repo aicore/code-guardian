@@ -38,4 +38,3 @@ def say_hello(event_details):
     return http_200_ok_with_json_response({
         RESPONSE_MESSAGE: "Hello World, " + name
     })
-

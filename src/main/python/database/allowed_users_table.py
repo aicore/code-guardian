@@ -1,7 +1,6 @@
-from boto3.dynamodb.conditions import Key, Attr
+from boto3.dynamodb.conditions import Key
 from database.table_operations import get_item, put_item, delete_item, \
     query_table_and_return_everything, PRIMARY_KEY, get_primary_key_value
-from api import util
 
 # primary_key = login_with_github
 # sort_key =  github_login

@@ -1,5 +1,5 @@
 import json
-from api.util import http_400_bad_request, API, http_401_unauthorized, \
+from api.util import http_400_bad_request, API, \
     STAGE, API_PARAMS, ROLE
 from api.api_schemas import check_event_confirms_to_schema_and_get_error
 from api.api_hello_world import say_hello, API_NAME_HELLO_WORLD
@@ -74,4 +74,3 @@ def process_event(event):
 
     print("Executing API handler:", api_name, ":", event_details)
     return api_handler(event_details)
-

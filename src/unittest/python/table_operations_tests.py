@@ -3,7 +3,7 @@ from setup_aws_test_mocks import setup_aws_infra
 from boto3.dynamodb.conditions import Key, Attr
 
 from moto import mock_dynamodb2
-from database.table_operations import PRIMARY_KEY,SORT_KEY, get_item, get_primary_key_value,\
+from database.table_operations import PRIMARY_KEY, SORT_KEY, get_item, get_primary_key_value, \
     put_item, delete_item, query_table_and_return_everything, query_table_and_return_everything_filtered
 import lambda_handler
 from test_utils import load_json_test_resource
@@ -43,9 +43,9 @@ class TableOperationsTests(unittest.TestCase):
 
     # noinspection PyMethodMayBeStatic
     def test_should_query_with_key_condition_expression(self):
-        put_item('custom_table','jane', 'makeba')
+        put_item('custom_table', 'jane', 'makeba')
         put_item('custom_table', 'jane', 'dynabeat')
-        put_item('custom_table', 'yeshudas', 'all',{
+        put_item('custom_table', 'yeshudas', 'all', {
             'language': 'malayalam'
         })
 
@@ -71,9 +71,9 @@ class TableOperationsTests(unittest.TestCase):
 
     # noinspection PyMethodMayBeStatic
     def test_should_query_with_key_condition_expression_and_filter(self):
-        put_item('custom_table','jane', 'makeba')
+        put_item('custom_table', 'jane', 'makeba')
         put_item('custom_table', 'jane', 'dynabeat')
-        put_item('custom_table', 'yeshudas', 'all',{
+        put_item('custom_table', 'yeshudas', 'all', {
             'language': 'malayalam'
         })
 

@@ -1,12 +1,13 @@
 import json
 import pathlib
-SAMPLE_API_REQUEST ='sample_request.json'
-SAMPLE_WORK_REQUEST ='worker_request.json'
+
+SAMPLE_API_REQUEST = 'sample_request.json'
+SAMPLE_WORK_REQUEST = 'worker_request.json'
 
 
 def _get_test_resource_file_path(file_name):
-    return pathlib.Path(__file__).parent.parent.absolute()\
-        .joinpath('test_resources')\
+    return pathlib.Path(__file__).parent.parent.absolute() \
+        .joinpath('test_resources') \
         .joinpath(file_name)
 
 

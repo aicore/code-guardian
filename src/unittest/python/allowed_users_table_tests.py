@@ -37,5 +37,3 @@ class AllowedUsersTableTests(unittest.TestCase):
         users = allowed_users_table.list_users()
 
         assert len(users) == 2
-
-

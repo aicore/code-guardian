@@ -28,7 +28,7 @@ def _add_sample_items(table):
 
 @mock_dynamodb2
 def _setup_ddb():
-    dynamodb = boto3.resource("dynamodb","us-east-1")
+    dynamodb = boto3.resource("dynamodb", "us-east-1")
     # Create the DynamoDB table.
     table = dynamodb.create_table(
         TableName=get_single_table_name(),
@@ -43,7 +43,6 @@ def _setup_ddb():
         ProvisionedThroughput={"ReadCapacityUnits": 5, "WriteCapacityUnits": 5},
     )
     _add_sample_items(table)
-
 
 
 def setup_aws_infra():

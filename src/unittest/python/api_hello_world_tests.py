@@ -1,14 +1,13 @@
 import json
 from moto import mock_dynamodb2
-import os
 import unittest
 from setup_aws_test_mocks import setup_aws_infra
 
 from api.api_schemas import PARAM_API
 import lambda_handler
 from test_utils import create_sample_event
-from api.util import get_ist_date_string_now, get_ist_timestamp_string_now, STATUS_CODE, BODY
-from api import api_hello_world, util
+from api.util import STATUS_CODE, BODY
+from api import api_hello_world
 
 
 @mock_dynamodb2
@@ -40,4 +39,3 @@ class LambdaMainTests(unittest.TestCase):
         return_val = lambda_handler.lambda_handler(event, "context")
 
         assert return_val[STATUS_CODE] == 400
-

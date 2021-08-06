@@ -6,9 +6,9 @@ import traceback
 # insert at 1, 0 is the script path (or '' in REPL)
 sys.path.insert(1, str(pathlib.Path(__file__).parent.absolute()))
 
-from api import exec_api
-from api import util
-from scheduler import do_work
+from api import exec_api  # NOQA
+from api import util  # NOQA
+from scheduler import do_work  # NOQA
 
 STAGE = 'stage'
 EVENT_TYPE = 'event_type'

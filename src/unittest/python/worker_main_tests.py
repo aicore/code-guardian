@@ -1,13 +1,9 @@
-import json
 from moto import mock_dynamodb2
 import os
 import unittest
 from setup_aws_test_mocks import setup_aws_infra
-
-from api.api_schemas import PARAM_API
 import lambda_handler
 from test_utils import create_sample_worker_event
-from api.util import STATUS_CODE, BODY
 from scheduler.do_work import WORKER
 
 
@@ -31,4 +27,3 @@ class LambdaMainTests(unittest.TestCase):
             WORKER: 'invalid worker'
         })
         self.assertRaises(Exception, lambda_handler.lambda_handler, event, "context")
-

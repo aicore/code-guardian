@@ -41,26 +41,27 @@ def check_event_confirms_to_schema_and_get_error(api_name, event):
     event_params = event[API_PARAMS].keys()
     if set(required_input_params).issubset(set(event_params)):
         return None
-    missing_params = list(set(required_input_params).difference(set(required_input_params).intersection(set(event_params))))
+    missing_params = list(set(required_input_params).
+                          difference(set(required_input_params).intersection(set(event_params))))
     print("ERROR: Some required params missing: ", json.dumps(missing_params))
     return "ERROR: Some required params missing: " + json.dumps(missing_params)
 
 
 API_SCHEMAS = {
-    "endpoints" : {
+    "endpoints": {
         "dev": "https://api.openresearch.dev/dev/exec",
         "prod": "https://api.openresearch.dev/prod/exec"
     },
     "api_hello_world": {
         "HTTP_METHOD": "GET",
         "input": {
-            "api" : "hello_world",
+            "api": "hello_world",
             "name": "Your name to say hello"
         },
-        "output" : {
+        "output": {
             "HTTP_RESPONSE_CODE": 200,
-            "BODY":{
-                "message" : "hello world, <name>"
+            "BODY": {
+                "message": "hello world, <name>"
             }
         },
         "exceptions": [
