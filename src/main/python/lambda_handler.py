@@ -14,7 +14,7 @@ STAGE = 'stage'
 EVENT_TYPE = 'event_type'
 EVENT_TYPE_WORKER = 'worker'
 EVENT_TYPE_REST_API_CALL = 'rest_api_call'
-EVENT_PARAMS = 'event_params'
+EVENT = 'event'
 REST_API_HTTP_METHOD = 'httpMethod'
 
 _WORKER_INFO = 'worker_info'
@@ -46,16 +46,20 @@ def _setup(event):
 
 def lambda_handler(event, context):
     print(json.dumps(event))
+    event_type = EVENT_TYPE_REST_API_CALL
     try:
         env = _setup(event)
         if env.get(EVENT_TYPE) == EVENT_TYPE_WORKER:
-            event_params = event[_WORKER_INFO][EVENT_PARAMS]
-            return do_work.work(event_params)
+            event_params = event[_WORKER_INFO][EVENT]
+            event_type = EVENT_TYPE_WORKER
+            return do_work.process_event(event_params)
         if env["httpMethod"].upper() == 'OPTIONS':
             # for CORS support
             return util.http_200_ok('{}')
         return exec_api.process_event(event)
-    except:
+    except Exception as e:
         # printing stack trace
         traceback.print_exc()
+        if event_type == EVENT_TYPE_WORKER:
+            raise e
         return util.http_500_inernal_server_error()

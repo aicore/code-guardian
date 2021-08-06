@@ -1,0 +1,9 @@
+{
+    "worker_info": {
+        "stage" : "dev",
+        "event": {
+            "worker": "sample_worker",
+            "name": "my name"
+        }
+    }
+}

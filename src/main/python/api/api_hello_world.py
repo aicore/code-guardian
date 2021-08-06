@@ -17,11 +17,12 @@ def validate_api_confirms_to_schema():
     ])
 
 
-API_NAME_ADD_USER = get_input_parameter(SCHEMA_DEFINITION_API_NAME, PARAM_API)
+API_NAME_HELLO_WORLD = get_input_parameter(SCHEMA_DEFINITION_API_NAME, PARAM_API)
 
 
 def _get_validation_errors_if_any(name):
-    if not name.isalpha():
+    if not all(x.isalpha() or x.isspace() for x in name):
+        # names should contain only alphabets or space
         return http_400_bad_request("Please provide a valid name without any numbers")
     return None
 

@@ -1,5 +1,6 @@
-from api import util
+WORKER_NAME_SAMPLE_WORKER = "sample_worker"
 
 
-def execute_worker():
-    return util.http_200_ok('ok')
+def execute_worker(event):
+    name = event['name']
+    return "Hello world," + name

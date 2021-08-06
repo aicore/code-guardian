@@ -2,7 +2,7 @@ import json
 from api.util import http_400_bad_request, API, http_401_unauthorized, \
     STAGE, API_PARAMS, ROLE
 from api.api_schemas import check_event_confirms_to_schema_and_get_error
-from api.api_hello_world import say_hello, API_NAME_ADD_USER
+from api.api_hello_world import say_hello, API_NAME_HELLO_WORLD
 
 QUERY_STRING_PARAMS_EVENT = 'queryStringParameters'
 BODY = 'body'
@@ -54,7 +54,7 @@ def _get_event_details_and_login_role(event):
 
 
 API_HANDLERS = {
-    API_NAME_ADD_USER: say_hello
+    API_NAME_HELLO_WORLD: say_hello
 }
 
 

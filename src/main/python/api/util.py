@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime, timedelta
 
 
@@ -14,6 +15,10 @@ CORS_HEADERS = {
     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
     'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
 }
+
+
+def get_stage():
+    return os.getenv('stage')
 
 
 def utc_to_ist(utc_dt):

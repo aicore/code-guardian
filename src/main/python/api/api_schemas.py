@@ -6,11 +6,6 @@ from api.util import API_PARAMS
 PARAM_API = 'api'
 
 
-def validate_list_contains(element_list, element, exception_message):
-    if element not in element_list:
-        raise Exception(exception_message)
-
-
 def validate_lists_are_same(list1, list2, exception_message):
     if collections.Counter(list1) != collections.Counter(list2):
         raise Exception(exception_message)
