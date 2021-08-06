@@ -7,7 +7,7 @@ use_plugin("python.flake8")
 use_plugin("python.coverage")
 use_plugin("python.distutils")
 use_plugin("python.install_dependencies")
-use_plugin("python.integrationtest")
+# TODO re-enable integration tests  use_plugin("python.integrationtest")
 
 name = "Template-PythonProject"
 default_task = "publish"
@@ -28,4 +28,7 @@ def set_properties(project):
     project.set_property("flake8_include_scripts", True)
     # Property for integration test to work on Windows
     # see https://github.com/pybuilder/pybuilder/issues/414
-    project.set_property("integrationtest_inherit_environment", True)
+    # project.set_property("integrationtest_inherit_environment", True)
+
+    project.build_depends_on("moto")
+    project.depends_on("boto3")
